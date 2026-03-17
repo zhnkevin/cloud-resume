@@ -1,5 +1,5 @@
 provider "aws" {
-  region = "us-west-2"
+  region = "us-east-1"
 
   default_tags {
     tags = {
@@ -12,7 +12,7 @@ provider "aws" {
 
 module "s3" {
   source                      = "./modules/s3"
-  static_bucket_name          = "cloud-resume-zhnkevin"
+  static_bucket_name          = "cloud-resume-zhnkevin-us-east-1"
   cloudfront_distribution_arn = module.cloudfront.cloudfront_distribution_arn
 }
 
@@ -23,7 +23,7 @@ module "cloudfront" {
 }
 
 resource "aws_s3_bucket" "knowledge_base" {
-  bucket = "cloud-resume-kb-zhnkevin"
+  bucket = "cloud-resume-kb-zhnkevin-us-east-1"
 }
 
 module "bedrock_kb" {
