@@ -28,10 +28,10 @@
     .certs { display: flex; flex-wrap: wrap; gap: 8px; }
     .certs span { background: #e8e8f0; padding: 4px 12px; border-radius: 16px; font-size: 0.82rem; }
     .chat-toggle { position: fixed; bottom: 24px; right: 24px; width: 56px; height: 56px; border-radius: 50%; background: #16213e; color: #fff; border: none; font-size: 1.5rem; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.2); z-index: 100; }
-    .chat-panel { position: fixed; bottom: 92px; right: 24px; width: 360px; max-height: 480px; background: #fff; border-radius: 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.15); display: flex; flex-direction: column; z-index: 100; overflow: hidden; }
+    .chat-panel { position: fixed; bottom: 92px; right: 24px; width: 440px; max-height: 600px; background: #fff; border-radius: 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.15); display: flex; flex-direction: column; z-index: 100; overflow: hidden; }
     .chat-panel.closed { display: none; }
     .chat-header { background: #16213e; color: #fff; padding: 14px 16px; font-size: 0.95rem; font-weight: 600; }
-    .chat-messages { flex: 1; overflow-y: auto; padding: 16px; min-height: 200px; max-height: 320px; }
+    .chat-messages { flex: 1; overflow-y: auto; padding: 16px; min-height: 280px; max-height: 440px; }
     .chat-messages .msg { margin-bottom: 12px; font-size: 0.9rem; line-height: 1.5; }
     .chat-messages .msg.user { text-align: right; }
     .chat-messages .msg.user span { background: #16213e; color: #fff; padding: 8px 12px; border-radius: 12px 12px 0 12px; display: inline-block; max-width: 85%; }
@@ -118,9 +118,9 @@
 
   <button class="chat-toggle" onclick="toggleChat()" aria-label="Toggle chat">💬</button>
   <div class="chat-panel" id="chatPanel">
-    <div class="chat-header">Ask about my resume</div>
+    <div class="chat-header">Ask about Kevin Zheng</div>
     <div class="chat-messages" id="chatMessages">
-      <div class="msg bot"><span>Hi! Ask me anything about Kevin's experience, skills, or certifications.</span></div>
+      <div class="msg bot"><span>Hi! Ask me anything about Kevin's experience, skills, certifications, GitHub projects, or how this website is built.</span></div>
     </div>
     <div class="chat-input">
       <input type="text" id="chatInput" placeholder="Type a question..." onkeydown="if(event.key==='Enter')sendMessage()">
@@ -129,7 +129,7 @@
   </div>
 
   <script>
-    const API_URL = "https://u6o2fawuu6.execute-api.us-west-2.amazonaws.com/chat";
+    const API_URL = "https://86cry7umdj.execute-api.us-east-1.amazonaws.com/chat";
 
     function toggleChat() {
       document.getElementById("chatPanel").classList.toggle("closed");
