@@ -12,7 +12,7 @@ import boto3
 bedrock = boto3.client("bedrock-agent-runtime", region_name=os.environ["AWS_REGION_NAME"])
 KB_ID = os.environ["KNOWLEDGE_BASE_ID"]
 REGION = os.environ["AWS_REGION_NAME"]
-MODEL = f"arn:aws:bedrock:{REGION}::foundation-model/us.anthropic.claude-3-5-haiku-20241022-v1:0"
+MODEL = f"arn:aws:bedrock:{REGION}::foundation-model/amazon.nova-lite-v1:0"
 
 # Prompt template for the KB — $search_results$ and $query$ are replaced by Bedrock with the retrieved chunks and user question
 PROMPT = (
