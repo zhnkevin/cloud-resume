@@ -17,4 +17,4 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
 
-      - run: aws s3 sync frontend/ s3://cloud-resume-zhnkevin/ --delete
+      - run: aws s3 sync frontend/ s3://cloud-resume-zhnkevin-us-east-1/ --delete
