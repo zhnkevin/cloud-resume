@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kevin Zheng – Cloud Resume</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Segoe UI', system-ui, sans-serif; color: #1a1a2e; background: #f0f0f5; line-height: 1.6; }
+    .container { max-width: 800px; margin: 40px auto; background: #fff; border-radius: 12px; box-shadow: 0 4px 24px rgba(0,0,0,0.08); overflow: hidden; }
+    header { background: linear-gradient(135deg, #1a1a2e, #16213e); color: #fff; padding: 48px 40px; }
+    header h1 { font-size: 2rem; margin-bottom: 4px; }
+    header p.subtitle { opacity: 0.85; font-size: 1.05rem; margin-bottom: 12px; }
+    .contact { display: flex; flex-wrap: wrap; gap: 16px; font-size: 0.9rem; }
+    .contact span { opacity: 0.8; }
+    .contact a { color: #a8d8ea; text-decoration: none; }
+    main { padding: 40px; }
+    section { margin-bottom: 32px; }
+    h2 { font-size: 1.1rem; color: #16213e; border-bottom: 2px solid #e8e8f0; padding-bottom: 6px; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 1px; }
+    .entry { margin-bottom: 20px; }
+    .entry h3 { font-size: 1rem; margin-bottom: 2px; }
+    .entry .meta { font-size: 0.85rem; color: #666; margin-bottom: 6px; }
+    .entry ul { padding-left: 20px; font-size: 0.95rem; color: #333; }
+    .entry ul li { margin-bottom: 4px; }
+    .skills-grid { display: grid; grid-template-columns: 120px 1fr; gap: 8px 16px; font-size: 0.95rem; }
+    .skills-grid dt { font-weight: 600; color: #16213e; }
+    .skills-grid dd { color: #333; }
+    .certs { display: flex; flex-wrap: wrap; gap: 8px; }
+    .certs span { background: #e8e8f0; padding: 4px 12px; border-radius: 16px; font-size: 0.82rem; }
+    .chat-toggle { position: fixed; bottom: 24px; right: 24px; width: 56px; height: 56px; border-radius: 50%; background: #16213e; color: #fff; border: none; font-size: 1.5rem; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.2); z-index: 100; }
+    .chat-panel { position: fixed; bottom: 92px; right: 24px; width: 360px; max-height: 480px; background: #fff; border-radius: 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.15); display: flex; flex-direction: column; z-index: 100; overflow: hidden; }
+    .chat-panel.closed { display: none; }
+    .chat-header { background: #16213e; color: #fff; padding: 14px 16px; font-size: 0.95rem; font-weight: 600; }
+    .chat-messages { flex: 1; overflow-y: auto; padding: 16px; min-height: 200px; max-height: 320px; }
+    .chat-messages .msg { margin-bottom: 12px; font-size: 0.9rem; line-height: 1.5; }
+    .chat-messages .msg.user { text-align: right; }
+    .chat-messages .msg.user span { background: #16213e; color: #fff; padding: 8px 12px; border-radius: 12px 12px 0 12px; display: inline-block; max-width: 85%; }
+    .chat-messages .msg.bot span { background: #f0f0f5; padding: 8px 12px; border-radius: 12px 12px 12px 0; display: inline-block; max-width: 85%; }
+    .chat-input { display: flex; border-top: 1px solid #e8e8f0; }
+    .chat-input input { flex: 1; border: none; padding: 12px 16px; font-size: 0.9rem; outline: none; }
+    .chat-input button { background: #16213e; color: #fff; border: none; padding: 12px 16px; cursor: pointer; font-size: 0.9rem; }
+    @media (max-width: 600px) {
+      header, main { padding: 28px 20px; }
+      .skills-grid { grid-template-columns: 1fr; }
+      .chat-panel { width: calc(100% - 48px); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Kevin Zheng</h1>
+      <p class="subtitle">Cloud &amp; Security-Focused AWS Engineer</p>
+      <div class="contact">
+        <span>Seattle, WA</span>
+        <span><a href="https://www.linkedin.com/in/zhnkevin/">LinkedIn</a></span>
+        <span><a href="https://github.com/zhnkevin">GitHub</a></span>
+      </div>
+    </header>
+    <main>
+      <section>
+        <h2>Profile</h2>
+        <p>Cloud and security-focused AWS engineer with 3+ years of experience designing, securing, and operating enterprise-scale cloud environments. Deep expertise in IAM, identity federation, cloud security architecture, compliance enablement, and large-scale cloud migrations.</p>
+      </section>
+      <section>
+        <h2>Experience</h2>
+        <div class="entry">
+          <h3>Solutions Architect — Amazon Web Services (AWS)</h3>
+          <p class="meta">November 2024 – Present · Seattle, WA</p>
+          <ul>
+            <li>Conducted end-to-end migration of 50+ VMware workloads to AWS, executing discovery, dependency mapping, and a phased cutover strategy, reducing infrastructure costs by 35%</li>
+            <li>Led architectural assessments of customer workloads, identifying risks and optimizations across security, reliability, performance, and cost to ensure HIPAA and SOC 2 compliance</li>
+            <li>Partnered with enterprise customers to develop cloud adoption roadmaps aligned with business objectives, accelerating workload deployment and reducing time to production</li>
+            <li>Delivered 10+ technical training workshops for 100+ customers on AWS security, AI, and ML services</li>
+          </ul>
+        </div>
+        <div class="entry">
+          <h3>Cloud Support Engineer (Security) — Amazon Web Services (AWS)</h3>
+          <p class="meta">March 2023 – November 2024 · Seattle, WA</p>
+          <ul>
+            <li>Resolved 800+ security-related support cases with a 98% average CSAT, troubleshooting complex issues across core security services while maintaining SLA adherence</li>
+            <li>Conducted security assessments and threat modeling using Security Hub, GuardDuty, and CloudTrail to identify and mitigate risk across application and infrastructure layers</li>
+            <li>Designed IAM policies for 100+ multi-account environments, applying least-privilege principles, SCPs, and permission boundaries</li>
+            <li>Deployed SSO integrations creating centralized access management between AWS and external identity providers (Okta, Entra ID, Active Directory)</li>
+          </ul>
+        </div>
+      </section>
+      <section>
+        <h2>Education</h2>
+        <div class="entry">
+          <h3>California State Polytechnic University, Pomona</h3>
+          <p class="meta">December 2022</p>
+          <p>Bachelor of Science in Computer Information Systems, Summa Cum Laude</p>
+        </div>
+      </section>
+      <section>
+        <h2>Technical Skills</h2>
+        <dl class="skills-grid">
+          <dt>Languages</dt>
+          <dd>Python, Bash</dd>
+          <dt>Cloud</dt>
+          <dd>AWS (IAM, Identity Center, CloudWatch, EC2, VPC, S3, Bedrock)</dd>
+        </dl>
+      </section>
+      <section>
+        <h2>Certifications</h2>
+        <div class="certs">
+          <span>AWS Solutions Architect – Professional</span>
+          <span>AWS Security – Specialty</span>
+          <span>AWS CloudOps Engineer</span>
+          <span>AWS Developer</span>
+          <span>CompTIA Security+</span>
+          <span>CompTIA A+</span>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <button class="chat-toggle" onclick="toggleChat()" aria-label="Toggle chat">💬</button>
+  <div class="chat-panel" id="chatPanel">
+    <div class="chat-header">Ask about my resume</div>
+    <div class="chat-messages" id="chatMessages">
+      <div class="msg bot"><span>Hi! Ask me anything about Kevin's experience, skills, or certifications.</span></div>
+    </div>
+    <div class="chat-input">
+      <input type="text" id="chatInput" placeholder="Type a question..." onkeydown="if(event.key==='Enter')sendMessage()">
+      <button onclick="sendMessage()">Send</button>
+    </div>
+  </div>
+
+  <script>
+    const API_URL = "https://u6o2fawuu6.execute-api.us-west-2.amazonaws.com/chat";
+
+    function toggleChat() {
+      document.getElementById("chatPanel").classList.toggle("closed");
+    }
+
+    async function sendMessage() {
+      const input = document.getElementById("chatInput");
+      const messages = document.getElementById("chatMessages");
+      const question = input.value.trim();
+      if (!question) return;
+
+      messages.innerHTML += `<div class="msg user"><span>${question}</span></div>`;
+      input.value = "";
+      messages.scrollTop = messages.scrollHeight;
+
+      messages.innerHTML += `<div class="msg bot" id="typing"><span>Thinking...</span></div>`;
+
+      try {
+        const res = await fetch(API_URL, {
+          method: "POST",
+          headers: {"Content-Type": "application/json"},
+          body: JSON.stringify({question}),
+        });
+        const data = await res.json();
+        document.getElementById("typing").remove();
+        messages.innerHTML += `<div class="msg bot"><span>${data.answer}</span></div>`;
+      } catch (e) {
+        document.getElementById("typing").remove();
+        messages.innerHTML += `<div class="msg bot"><span>Sorry, something went wrong.</span></div>`;
+      }
+      messages.scrollTop = messages.scrollHeight;
+    }
+  </script>
+</body>
+</html>
