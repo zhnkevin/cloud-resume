@@ -1,6 +1,6 @@
 # Cloud Resume
 
-A serverless resume website with an AI chatbot, built on AWS and managed with Terraform.
+My personal resume site, powered by a serverless AI chatbot on AWS. Everything is managed with Terraform.
 
 ## Architecture
 
@@ -10,6 +10,7 @@ A serverless resume website with an AI chatbot, built on AWS and managed with Te
 - **API Gateway** — HTTP API with a `POST /chat` route that triggers the Lambda
 - **Bedrock Knowledge Base** — RAG pipeline using S3 Vectors to answer questions about the resume
 - **S3 Vectors** — cost-effective vector store for the Knowledge Base
+- **GitHub Actions** — auto-deploys frontend to S3 on push via OIDC
 
 ## Project Structure
 
@@ -18,24 +19,28 @@ A serverless resume website with an AI chatbot, built on AWS and managed with Te
 ├── backend/
 │   └── lambda/
 │       └── ai-chat/   # Lambda function for the AI chatbot
+├── .github/
+│   └── workflows/
+│       └── deploy-frontend.yml  # Auto-deploys frontend on push
 ├── terraform/
-│   ├── main.tf        # Root config wiring all modules
-│   ├── variables.tf   # Root variables (environment, owner)
-│   ├── terraform.tf   # Provider version constraints
+│   ├── main.tf
+│   ├── variables.tf
+│   ├── terraform.tf
 │   └── modules/
-│       ├── s3/            # S3 bucket + bucket policy
-│       ├── cloudfront/    # CloudFront distribution + OAC
-│       ├── bedrock-kb/    # Knowledge Base + S3 Vectors + IAM
-│       ├── lambda/        # Lambda function + IAM
-│       └── api-gateway/   # HTTP API + Lambda integration
+│       ├── s3/                # S3 bucket + bucket policy
+│       ├── cloudfront/        # CloudFront distribution + OAC
+│       ├── bedrock-kb/        # Knowledge Base + S3 Vectors + IAM
+│       ├── lambda/            # Lambda function + IAM
+│       ├── api-gateway/       # HTTP API + Lambda integration
+│       └── github-actions-iam/  # OIDC provider + IAM role for GitHub Actions
 ```
 
 ## Prerequisites
 
-- AWS CLI configured with appropriate credentials
+- AWS CLI configured with credentials
 - Terraform >= 1.2
 
-## Deploy
+## Deploying
 
 ```bash
 cd terraform
@@ -43,8 +48,11 @@ terraform init
 terraform apply
 ```
 
-After deploy:
+After that:
 1. Upload your resume PDF to the Knowledge Base S3 bucket
-2. Trigger a Knowledge Base sync to ingest the document
-3. Update `API_URL` in `frontend/index.html` with the `chat_api_endpoint` output
-4. Upload frontend files to the static S3 bucket
+2. Sync the Knowledge Base so it ingests the document
+3. Update `API_URL` in `frontend/index.html` with the `chat_api_endpoint` output from Terraform
+
+## CI/CD
+
+Any push to `main` that changes files under `frontend/` will automatically sync to S3 via GitHub Actions. Auth is handled through OIDC — no access keys needed.
