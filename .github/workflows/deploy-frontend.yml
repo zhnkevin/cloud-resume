@@ -5,6 +5,10 @@ on:
     branches: [main]
     paths: [frontend/**]
 
+permissions:
+  id-token: write
+  contents: read
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -13,8 +17,7 @@ jobs:
 
       - uses: aws-actions/configure-aws-credentials@v4
         with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          role-to-assume: arn:aws:iam::105959917209:role/github-actions-cloud-resume-s3-deploy
           aws-region: us-east-1
 
       - run: aws s3 sync frontend/ s3://cloud-resume-zhnkevin-us-east-1/ --delete

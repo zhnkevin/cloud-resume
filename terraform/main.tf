@@ -48,7 +48,8 @@ module "api_gateway" {
 
 module "github_actions_iam" {
   source        = "./modules/github-actions-iam"
-  username      = "github-actions-cloud-resume-s3-deploy"
+  role_name     = "github-actions-cloud-resume-s3-deploy"
+  github_repo   = "zhnkevin/cloud-resume"
   s3_bucket_arn = module.s3.bucket_arn
 }
 

@@ -1,6 +1,11 @@
-variable "username" {
+variable "role_name" {
   type        = string
-  description = "IAM username for GitHub Actions"
+  description = "IAM role name for GitHub Actions"
+}
+
+variable "github_repo" {
+  type        = string
+  description = "GitHub repo in owner/repo format (e.g. zhnkevin/cloud-resume)"
 }
 
 variable "s3_bucket_arn" {
